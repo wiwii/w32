@@ -1037,7 +1037,7 @@ func RedrawWindow(hWnd HWND, lpRect *RECT, hrgnUpdate HRGN, flag uint32) {
 		uintptr(hWnd),
 		uintptr(unsafe.Pointer(lpRect)),
 		uintptr(hrgnUpdate),
-		flag,
+		uintptr(flag), // flag xxx <- 这里修改了，不知道会不会出问题
 	)
 	if ret!=0{
 		panic("RedrawWindow fail")
